@@ -1,11 +1,6 @@
 local lsp = require("lsp-zero")
 lsp.preset("recommended")
 
-require'lspconfig'.clangd.setup{}
-require'lspconfig'.pyright.setup{}
-require'lspconfig'.rust_analyzer.setup{}
-require'lspconfig'.tsserver.setup{}
-
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 local cmp_mappings = lsp.defaults.cmp_mappings({
@@ -26,7 +21,7 @@ end)
 -- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {},
+  ensure_installed = {'clangd', 'pyright', 'rust_analyzer', 'html', 'cssls'},
   handlers = {
     lsp.default_setup,
   },

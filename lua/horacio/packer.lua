@@ -6,6 +6,7 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   
+  use('mg979/vim-visual-multi')
   use {
   'nvim-telescope/telescope.nvim', tag = '0.1.6',
   -- or                            , branch = '0.1.x',
@@ -48,5 +49,18 @@ return require('packer').startup(function(use)
 		{'L3MON4D3/LuaSnip'},
 		}
       }
+  use {
+        'brenton-leighton/multiple-cursors.nvim',
+        config = function()
+            require("multiple-cursors").setup({
+            default_keybindings = true,
+            updatetime = 150,
+            hint = {
+                enable = true,
+                show_on_start = true,
+            }
+            })
+        end
+       }
 end)
 
